@@ -26,10 +26,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun saveNewCustomer() {
-        val customer = Customer()
-        customer.firstName = "John"
-        customer.lastName = "Smith"
-        customer.createdAt = DateHelpers.getCurrentUTCDateTime()
+        val customer = Customer("John", "Smith", DateHelpers.getCurrentUTCDateTime())
+        //customer.firstName = "John"
+        //customer.lastName = "Smith"
+        //customer.createdAt = DateHelpers.getCurrentUTCDateTime()
         this.customerRepository.createNewCustomer(customer)
     }
 }

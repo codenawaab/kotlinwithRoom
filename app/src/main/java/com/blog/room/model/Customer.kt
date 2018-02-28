@@ -10,21 +10,16 @@ import android.arch.persistence.room.PrimaryKey
  */
 
 @Entity(tableName = "Customers")
-class Customer {
+class Customer(@ColumnInfo(name = "FirstName")
+               val firstName: String,
+               @ColumnInfo(name = "LastName")
+               val lastName: String,
+               @ColumnInfo(name = "CreatedAt")
+               val createdAt: String,
+               @ColumnInfo(name = "IsDeleted")
+               var isDeleted: Boolean = false) {
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "Id")
     var id: Int = 0
-
-    @ColumnInfo(name = "FirstName")
-    var firstName: String? = null
-
-    @ColumnInfo(name = "LastName")
-    var lastName: String? = null
-
-    @ColumnInfo(name = "CreatedAt")
-    var createdAt: String? = null
-
-    @ColumnInfo(name = "IsDeleted")
-    var isDeleted: Boolean = false
 }
